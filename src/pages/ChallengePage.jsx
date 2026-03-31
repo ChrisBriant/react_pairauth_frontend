@@ -1,16 +1,18 @@
 import { QRCodeSVG } from "qrcode.react";
+import { useParams } from "react-router-dom";
 
 
-const SignInQrCode = ({challengeCode}) => {
+const ChallengePage = () => {
     //const qrValue = "uk.chrisbriant.pairauth://pair?token=abc123";
+    const { challengeCode } = useParams();
     const qrValue = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}`;
     
     return (
         <div className="qrCodePage">
             <h2>Scan to sign in</h2>
-            <div className="panel">
+            <div className="panel challengeCodeManual">
                 <QRCodeSVG value={qrValue} size={256} />
-                <div className="challengeCodeManual panelAlt">
+                <div className="altPanel">
                     <h3>Challenge Code</h3>
                     <h2>{challengeCode}</h2>
                 </div>
@@ -21,4 +23,4 @@ const SignInQrCode = ({challengeCode}) => {
     );
 }
 
-export default SignInQrCode;
+export default ChallengePage;
