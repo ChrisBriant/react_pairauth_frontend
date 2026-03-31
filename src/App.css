@@ -1,0 +1,272 @@
+:root {
+  --btn-bg-color : #002da8;
+  --btn-fg-color : #e4cdcd;
+  --btn-disabled-bg-color : #cccccc;
+  --btn-disabled-fg-color : #666666;
+  --panel-bg-color : #74a02bff ;
+  --panel-fg-color : rgb(29, 41, 11) ;
+  --pear-fg-color : #74a02bff ;
+
+  --alt-panel-bg-color : #fff;
+
+  /* --indicator-bg : #fff;
+  --indicator-segment-1 : #ff0000ab;
+  --indicator-segment-2 : #ffbb00ab;
+  --indicator-segment-3 : #00ff00ab; */
+
+  --indicator-bg: #e0e0e0;
+  /* Defining the full spectrum from Weak (Red) to Strong (Green) */
+  --gradient-full: linear-gradient(to right, #ff4d4d, #ffd633, #00cc66);
+ }
+
+ #root {
+  padding: 20px 0;
+ }
+
+ * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+
+/* UI ELEMENTS  */
+
+html, body {
+  color: var(--pear-fg-color);
+}
+
+h3 {
+  padding: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--btn-fg-color);
+  background-color: var(--btn-bg-color); /* Primary Indigo */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  outline: none;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+/* Hover Effect: Lifts slightly and brightens */
+.btn:hover {
+  background-color: var(--btn-bg-color);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Active/Click Effect: Pushes back down */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Focus state for accessibility */
+.btn:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  background-color: var(--btn-disabled-bg-color); 
+  color: var(--btn-disabled-fg-color);            
+  cursor: not-allowed;     
+  box-shadow: none;          
+  transform: none;          
+  opacity: 0.7;             
+}
+
+/* Crucial: Disable the hover effects specifically for the disabled state */
+.btn:disabled:hover {
+  background-color: var(--btn-disabled-bg-color); 
+  transform: none;
+  box-shadow: none;
+}
+
+/* HEADER  */
+
+.motif img {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+/* FORMS  */
+
+input {
+  font-size: 1rem;
+  height: 30px;
+  padding: 6px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  min-height: 40px;
+}
+
+.formGroup label {
+  width: 50%;
+}
+
+.formGroup input {
+  width: 50%;
+}
+
+
+/* LAYOUT  */
+
+.panel {
+  background-color: var(--panel-bg-color);
+  color: var(--panel-fg-color);
+}
+
+.signInBox {
+  border-radius: 10px;
+  width: 50%;
+  text-align: left;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.altPanel {
+  background-color: var(--alt-panel-bg-color);
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* .indicatorBar {
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  background-color: var(--indicator-bg);
+  display: flex;
+  flex-direction: row;
+}
+
+.segment.active:nth-child(1)  {
+  width: 33%;
+  height: 20px;
+  background-color : var(--indicator-segment-1);
+}
+
+.segment.active:nth-child(2)  {
+  width: 34%;
+  height: 20px;
+  background-color : var(--indicator-segment-2);
+}
+
+.segment.active:nth-child(3)  {
+  width: 33%;
+  height: 20px;
+  background-color : var(--indicator-segment-3);
+} */
+
+
+/* WITH ANIMATION  */
+
+/* .indicatorBar {
+  height: 20px;
+  border: 2px solid var(--panel-fg-color);
+  border-radius: 4px;
+  background-color: var(--indicator-bg, #eee);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.segment {
+  width: 0%;
+  height: 100%;
+  transition: width 0.4s ease-in-out, background-color 0.3s linear;
+}
+
+.segment.active:nth-child(1) {
+  width: 33.33%;
+  background-color: var(--indicator-segment-1, #ff4d4d);
+}
+
+.segment.active:nth-child(2) {
+  width: 33.34%;
+  background-color: var(--indicator-segment-2, #ffd633);
+}
+
+.segment.active:nth-child(3) {
+  width: 33.33%;
+  background-color: var(--indicator-segment-3, #00cc66);
+} */
+
+
+.indicatorBar {
+  height: 20px;
+  border: 2px solid #000;
+  margin: 2px 0;
+  border-radius: 4px;
+  background-color: var(--indicator-bg);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* The magic: A hidden layer that holds the full color spectrum */
+.indicatorBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-full);
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+/* Show the gradient background as soon as the first segment is active */
+.indicatorBar:has(.active)::before {
+  opacity: 1;
+}
+
+.segment {
+  flex: 1; /* Each takes up equal space */
+  height: 100%;
+  background-color: var(--indicator-bg); /* Matches container bg when inactive */
+  transition: background-color 0.4s ease;
+  z-index: 1;
+}
+
+.segment:last-child {
+  border-right: none;
+}
+
+/* When a segment is ACTIVE, we make it transparent to 'reveal' the gradient behind it */
+.segment.active {
+  background-color: transparent;
+}
+
+/* OTHER  */
+
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
