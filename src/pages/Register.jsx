@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PasswordStrengthIndicator from "../components/PasswordStrengthIndicator";
+import { register } from "../network/apiCalls";
 
 const Register = () => {
     const [password, setPassword] = useState("");
@@ -8,9 +9,23 @@ const Register = () => {
     const [isPasswordStrong, setIsPasswordStrong] = useState(false);
 
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         if(!isPasswordStrong || userName.length < 8  || confirmPassword !== password) return;
         console.log("I WILL REGISTER", password, confirmPassword);
+        try {
+            const challenge = await register({
+                user_name : userName,
+                password : password,
+            });
+            if(challenge) {
+                window.location.href = `/challenge/${challenge}`;
+            } else {
+                console.error("Error registering - challenge code not received");
+            }
+        } catch (e) {
+            console.error("Error registering", e)
+        } 
+
     }
 
     return(

@@ -6,7 +6,7 @@ const Home = () => {
                 <a href="/register" className="btn">
                     Register
                 </a>
-                <a href="/challenge/testchallengecode" className="btn">
+                <a href="/challenge/QlLswn2gudev_yHfWLOh2ZtUJgNskDk-Jnr7YnYyrT4" className="btn">
                     Challenge
                 </a>
 

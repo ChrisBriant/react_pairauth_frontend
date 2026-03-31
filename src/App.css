@@ -54,6 +54,7 @@ h3 {
   outline: none;
   margin: 10px 0;
   text-decoration: none;
+  min-width: 140px;
 }
 
 /* Hover Effect: Lifts slightly and brightens */
@@ -146,12 +147,21 @@ input {
   margin: 20px auto;
 }
 
+.signUpComplete {
+  width: 50%;
+}
+
 .altPanel {
+  width: 100%;
   background-color: var(--alt-panel-bg-color);
   padding: 10px;
   text-align: center;
   border-radius: 10px;
   margin: 10px 0;
+}
+
+.altPanel h2 {
+  overflow-wrap: anywhere;
 }
 
 .indicatorContainer {

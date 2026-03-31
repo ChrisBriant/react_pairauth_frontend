@@ -3,6 +3,7 @@ import Layout from './layout/Layout';
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import ChallengePage from "./pages/ChallengePage";
+import SignUpComplete from "./pages/SignUpComplete";
 
 
 const MainRoutes = () => {
@@ -15,6 +16,8 @@ const MainRoutes = () => {
                 <Route path="/register" element={<Register />}>
                 </Route>
                 <Route path="/challenge/:challengeCode" element={<ChallengePage  />}>
+                </Route>
+                <Route path="/signupcomplete" element={<SignUpComplete  />}>
                 </Route>
             </Routes>
         </>
