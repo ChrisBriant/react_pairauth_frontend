@@ -15,4 +15,20 @@ function register(payload) {
 } 
 
 
-export {register};
+function signIn(payload) {
+    return new Promise( async (resolve,reject) => {
+        const url = "/auth/signin";
+
+        conn.post(url, payload, {withCredentials: true})
+        .then( (response) => {
+            return resolve(response.data);
+        }).catch((err) => {
+            console.error("ERROR REJECT",err);
+            return reject(err);
+        });
+    });
+} 
+
+
+
+export {register,signIn};

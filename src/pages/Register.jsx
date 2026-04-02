@@ -17,6 +17,8 @@ const Register = () => {
                 user_name : userName,
                 password : password,
             });
+            //Needs to set the type which is either registration or signin
+            //UI needs to respond with regards to the deep link sent
             if(challenge) {
                 window.location.href = `/challenge/${challenge}`;
             } else {
