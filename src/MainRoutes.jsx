@@ -15,6 +15,8 @@ const MainRoutes = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                 </Route>
+                <Route path="/home" element={<Home />}>
+                </Route>
                 <Route path="/register" element={<Register />}>
                 </Route>
                 <Route path="/challenge/:challengeCode/:type" element={<ChallengePage  />}>
