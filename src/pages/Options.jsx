@@ -1,8 +1,8 @@
-const Home = () => {
+const Options = () => {
     return(
         <div>
-            <h2>This is the Home Page</h2>
-            {/* <div className="menuSelection panel">
+            <h2>Menu</h2>
+            <div className="menuSelection panel">
                 <a href="/register" className="btn">
                     Register
                 </a>
@@ -13,10 +13,10 @@ const Home = () => {
                     Sign In Challenge
                 </a>
 
-            </div> */}
+            </div>
 
         </div>
     );
 }
 
-export default Home;
+export default Options;

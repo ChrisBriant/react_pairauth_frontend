@@ -20,7 +20,7 @@ const Register = () => {
             //Needs to set the type which is either registration or signin
             //UI needs to respond with regards to the deep link sent
             if(challenge) {
-                window.location.href = `/challenge/${challenge}`;
+                window.location.href = `/challenge/${challenge}/register`;
             } else {
                 console.error("Error registering - challenge code not received");
             }

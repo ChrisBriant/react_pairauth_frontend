@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import ChallengePage from "./pages/ChallengePage";
 import SignUpComplete from "./pages/SignUpComplete";
 import SignInPage from "./pages/SignInPage";
+import Options from "./pages/Options";
 
 
 const MainRoutes = () => {
@@ -16,9 +17,11 @@ const MainRoutes = () => {
                 </Route>
                 <Route path="/register" element={<Register />}>
                 </Route>
-                <Route path="/challenge/:challengeCode" element={<ChallengePage  />}>
+                <Route path="/challenge/:challengeCode/:type" element={<ChallengePage  />}>
                 </Route>
                 <Route path="/signupcomplete" element={<SignUpComplete  />}>
+                </Route>
+                <Route path="/options" element={<Options  />}>
                 </Route>
                 <Route path="/signin" element={<SignInPage  />}>
                 </Route>
