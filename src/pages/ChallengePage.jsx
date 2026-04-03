@@ -29,7 +29,7 @@ const ChallengePage = () => {
                     </>
                     : <>
                         <p>Press continue once authentication is complete.</p>
-                        <button className="btn" onClick={() => navigate('/home') }>
+                        <button className="btn" onClick={() => window.location.href = `${process.env.API_BASE_URL}/auth/complete-signin` }>
                             Continue
                         </button>
                     </>
