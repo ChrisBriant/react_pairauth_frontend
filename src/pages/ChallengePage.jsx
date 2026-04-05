@@ -5,10 +5,14 @@ import { useParams, useNavigate } from "react-router-dom";
 const ChallengePage = () => {
     //const qrValue = "uk.chrisbriant.pairauth://pair?token=abc123";
     const { challengeCode, type } = useParams();
-    const qrValue = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}`;
+    //const qrValue = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
+    //const qrValue = `${process.env.REDIRECT_ENDPOINT_URL}/auth/deviceredirect?redirect_url=${process.env.ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
+    const innerUrl = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
+    const qrValue = `${process.env.REDIRECT_ENDPOINT_URL}/auth/deviceredirect?redirect_url=${encodeURIComponent(innerUrl)}`;
+    console.log("QR URL", qrValue);
     const navigate = useNavigate();
 
-    console.log("TYPE", type);
+    console.log("QR Value", qrValue);
 
     return (
         <div className="qrCodePage">
