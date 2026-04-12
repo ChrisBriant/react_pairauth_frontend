@@ -3,7 +3,7 @@ import { QRCodeSVG } from "qrcode.react";
 
 const SignInQrCode = ({challengeCode}) => {
     //const qrValue = "uk.chrisbriant.pairauth://pair?token=abc123";
-    const qrValue = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}`;
+    const qrValue = `${import.meta.env.VITE_ANDROID_SCHEME}pair?token=${challengeCode}`;
     
     return (
         <div className="qrCodePage">

@@ -42,6 +42,7 @@ const SignInPage = () => {
                 <button className="btn"  onClick={() => handleSignin()}>
                     Sign In
                 </button>
+                <p>Don't have an account? Click <a href="/register">here</a> to register.</p>
             </div>
         </div>
     );

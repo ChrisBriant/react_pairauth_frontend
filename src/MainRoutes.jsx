@@ -6,6 +6,7 @@ import ChallengePage from "./pages/ChallengePage";
 import SignUpComplete from "./pages/SignUpComplete";
 import SignInPage from "./pages/SignInPage";
 import Options from "./pages/Options";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 
 const MainRoutes = () => {
@@ -26,6 +27,8 @@ const MainRoutes = () => {
                 <Route path="/options" element={<Options  />}>
                 </Route>
                 <Route path="/signin" element={<SignInPage  />}>
+                </Route>
+                <Route path="/terms" element={<TermsAndConditions  />}>
                 </Route>
             </Routes>
         </>

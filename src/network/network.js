@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const conn = axios.create({
-    baseURL : process.env.API_BASE_URL,
+    baseURL : import.meta.env.VITE_API_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
-        'Origin': process.env.APP_ORIGIN_URL
+        'Origin': import.meta.env.VITE_APP_ORIGIN_URL
     }
 });
 

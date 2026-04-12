@@ -4,10 +4,13 @@
   --btn-disabled-bg-color : #cccccc;
   --btn-disabled-fg-color : #666666;
   --panel-bg-color : #74a02bff ;
-  --panel-fg-color : rgb(29, 41, 11) ;
+  --panel-fg-color : #253806;
   --pear-fg-color : #74a02bff ;
 
   --alt-panel-bg-color : #fff;
+
+  --link-color : #ffffff;
+  --link-hover-color : #98d68c;
 
   /* --indicator-bg : #fff;
   --indicator-segment-1 : #ff0000ab;
@@ -33,6 +36,23 @@
 
 html, body {
   color: var(--pear-fg-color);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a:visited,
+a {
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color .5s ease-in-out;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  transition: color .5s ease-in-out;
 }
 
 h3 {
@@ -178,6 +198,23 @@ input {
   width: 50%;
 }
 
+.termsContainer {
+  padding: 20px;
+  background-color: var(--alt-panel-bg-color);
+}
+
+.termsContainer p,
+.termsContainer h1,
+.termsContainer h2,
+.termsContainer h3 {
+  margin: 10px 0;
+}
+
+.termsContainer ul {
+  margin-left: 40px;
+  text-align: left;
+}
+
 /* .indicatorBar {
   height: 20px;
   border: 2px solid #000;
@@ -288,6 +325,11 @@ input {
 }
 
 /* OTHER  */
+
+#signInGraphicContainer.imgContainer {
+  width: 20vw;
+  margin: 20px 0;
+}
 
 
 #center {

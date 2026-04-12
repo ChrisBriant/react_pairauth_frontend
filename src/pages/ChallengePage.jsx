@@ -3,12 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 
 
 const ChallengePage = () => {
-    //const qrValue = "uk.chrisbriant.pairauth://pair?token=abc123";
     const { challengeCode, type } = useParams();
-    //const qrValue = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
-    //const qrValue = `${process.env.REDIRECT_ENDPOINT_URL}/auth/deviceredirect?redirect_url=${process.env.ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
-    const innerUrl = `${process.env.ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
-    const qrValue = `${process.env.REDIRECT_ENDPOINT_URL}/auth/deviceredirect?redirect_url=${encodeURIComponent(innerUrl)}`;
+    const innerUrl = `${import.meta.env.VITE_ANDROID_SCHEME}pair?token=${challengeCode}&type=${type}`;
+    const qrValue = `${import.meta.env.VITE_REDIRECT_ENDPOINT_URL}/auth/deviceredirect?redirect_url=${encodeURIComponent(innerUrl)}`;
     console.log("QR URL", qrValue);
     const navigate = useNavigate();
 
@@ -33,7 +30,7 @@ const ChallengePage = () => {
                     </>
                     : <>
                         <p>Press continue once authentication is complete.</p>
-                        <button className="btn" onClick={() => window.location.href = `${process.env.API_BASE_URL}/auth/complete-signin` }>
+                        <button className="btn" onClick={() => window.location.href = `${import.meta.env.VITE_API_BASE_URL}/auth/complete-signin` }>
                             Continue
                         </button>
                     </>

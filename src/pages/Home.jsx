@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { signOut, refresh,getSession } from "../network/apiCalls";
 import { useNavigate } from "react-router-dom";
+import SignedInDisplay from "../components/SignedInDisplay";
 
 const Home = () => {
     //const [sessionRefresh,setSessionRefresh] = useState(0);
@@ -12,6 +13,8 @@ const Home = () => {
 
     useEffect(() => {
         getSession().then((res) => {
+            //Check terms and conditions are accepted
+            if(!res.accepted_terms) navigate("/terms");
             //Set loaded, profile and authenticated 
             setLoadingSession(false);
             setAuthenticated(true);
@@ -39,25 +42,11 @@ const Home = () => {
 
     return(
         <div>
-            <h2>This is the Home Page</h2>
             {
                 authenticated
-                ? <h2>You Are Authenticated</h2>
+                ? <SignedInDisplay profile={profile} />
                 : null
             }
-            {/* <div className="menuSelection panel">
-                <a href="/register" className="btn">
-                    Register
-                </a>
-                <a href="/challenge/QlLswn2gudev_yHfWLOh2ZtUJgNskDk-Jnr7YnYyrT4/register" className="btn">
-                    Register Challenge
-                </a>
-                <a href="/challenge/QlLswn2gudev_yHfWLOh2ZtUJgNskDk-Jnr7YnYyrT4/signin" className="btn">
-                    Sign In Challenge
-                </a>
-
-            </div> */}
-
         </div>
     );
 }

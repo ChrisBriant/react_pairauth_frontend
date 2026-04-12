@@ -68,6 +68,7 @@ const Register = () => {
                 <button className="btn" disabled={!isPasswordStrong || userName.length < 8  || confirmPassword !== password } onClick={() => handleRegister()}>
                     Register
                 </button>
+                <p>Already have an account? Click <a href="/signin">here</a> to sign in.</p>
             </div>
         </div>
     );

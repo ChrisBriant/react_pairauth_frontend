@@ -73,5 +73,18 @@ function signOut() {
     });
 }
 
+function acceptTerms() {
+    return new Promise( async (resolve,reject) => {
+        const url = "/auth/acceptterms";
+        conn.post(url,{}, {withCredentials: true})
+        .then( (response) => {
+            return resolve(response.data);
+        }).catch((err) => {
+            console.error("ERROR REJECT",err);
+            return reject(err);
+        });
+    });
+}
 
-export {register,signIn, getSession, refresh,signOut};
+
+export {register,signIn, getSession, refresh,signOut, acceptTerms};
